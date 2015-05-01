@@ -1,0 +1,14 @@
+from golang/go
+using gnu/wget
+
+cmd mkdir C:\test
+workdir c:\test
+
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/go/resources/hello.go -O hello.go --no-check-certificate
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/go/resources/hello.expected.txt -O hello.expected.txt --no-check-certificate
+
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/sqa-utils/compare\compare.exe -O compare.exe --no-check-certificate
+
+cmd go.exe run c:\test\hello.go > hello.result.txt
+
+cmd compare.exe "C:\test\hello.expected.txt" "C:\test\hello.result.txt"
