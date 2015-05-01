@@ -1,4 +1,8 @@
 from 7-zip/7-zip
-using wget/wget
+using gnu/wget
 
-cmd wget 
+cmd mkdir C:\test
+workdir c:\test
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/7-zip/resources/Files.zip -o Files.zip --no-check-certificate
+cmd 7z.exe x Files.zip
+cmd /k
