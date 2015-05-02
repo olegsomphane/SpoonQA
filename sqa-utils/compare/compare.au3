@@ -2,11 +2,11 @@
 
 ; first argument should point to the file containing the result string
 $first = FileRead($CmdLine[1])
-StringRegExpReplace($first, '\R', @CRLF) ; normalize crlf and lf (github modifies line breaks)
+$first = StringRegExpReplace($first, '\R', @CRLF) ; normalize crlf and lf (github modifies line breaks)
 
 ; second argument should point to the file containing the expected string
 $second = FileRead($CmdLine[2])
-StringRegExpReplace($second, '\R', @CRLF) ; normalize crlf and lf
+$second = StringRegExpReplace($second, '\R', @CRLF) ; normalize crlf and lf
 
 ; string compare
 $compare = ($first == $second)
