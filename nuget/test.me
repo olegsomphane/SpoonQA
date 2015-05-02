@@ -1,0 +1,27 @@
+from nuget/nuget
+using gnu/wget
+
+cmd mkdir C:\test
+workdir c:\test
+
+cmd nuget.exe help
+
+cmd nuget.exe install nugethello -ExcludeVersion
+
+batch cmd
+  
+  set spoon_test_path=c:\test\nugethello\nugethello.nupkg
+  if exist "%spoon_test_path%" (
+    echo pass [path exists]: "%spoon_test_path%"
+  ) else (
+    echo fail [path does not exist]: "%spoon_test_path%"
+    exit /b -1
+  )
+  
+  set spoon_test_path=c:\test\nugethello\lib\Base.NugetHello.dll
+  if exist "%spoon_test_path%" (
+    echo pass [path exists]: "%spoon_test_path%"
+  ) else (
+    echo fail [path does not exist]: "%spoon_test_path%"
+    exit /b -1
+  )
