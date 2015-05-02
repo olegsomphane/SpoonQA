@@ -1,0 +1,14 @@
+from ruby/ruby
+using gnu/wget
+
+cmd mkdir C:\test
+workdir c:\test
+
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/ruby/resources/hello.rb -O hello.rb --no-check-certificate
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/ruby/resources/hello.expected.txt -O hello.expected.txt --no-check-certificate
+
+cmd wget https://github.com/olegsomphane/SpoonQA/raw/master/sqa-utils/compare/compare.exe -O compare.exe --no-check-certificate
+
+cmd ruby.exe c:\test\hello.rb > hello.result.txt
+
+cmd compare.exe "C:\test\hello.expected.txt" "C:\test\hello.result.txt"
